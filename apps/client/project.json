@@ -30,7 +30,8 @@
     "serve": {
       "executor": "@nx/rspack:dev-server",
       "options": {
-        "buildTarget": "client:build:development"
+        "buildTarget": "client:build:development",
+        "proxyConfig": "apps/client/proxy.conf.json"
       },
       "configurations": {
         "development": {},
