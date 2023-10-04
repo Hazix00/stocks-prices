@@ -1,17 +1,21 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { StocksPricesService } from './stocks-prices.service';
-import { StockPrice } from '@prisma/client';
+import { QueryStocksDto } from './dtos/query-stocks.dto';
 
 @Controller('')
 export class StocksPricesController {
   constructor(private readonly stocksPricesService: StocksPricesService) {}
 
   @Get()
-  get(@Query() stocksDto: Partial<StockPrice>) {
-
+  get(@Query() queryStocksDto: QueryStocksDto) {
+    return this.stocksPricesService.findStocksPricesGroupedByMonthAndAvgPrice(queryStocksDto);
   }
 
-  bestGainOfTheYear(@Query() stocksDto: Partial<StockPrice>) {
+
+  @Get('best-gain-of-the-year')
+  bestGainOfTheYear(@Query() queryStocksDto: QueryStocksDto) {
+
+
 
   }
 }
