@@ -28,8 +28,16 @@ export class StocksPricesRepository extends PrismaService {
       filterQuery['company'] = query.company;
     }
 
+
+    this.logger.debug('query');
+    console.log(query);
+    this.logger.debug('filterQuery', filterQuery);
+
     return this.stockPrice.findMany({
       where: filterQuery,
+      orderBy: {
+        timestamp: 'asc',
+      }
     });
   }
 
@@ -83,8 +91,6 @@ export class StocksPricesRepository extends PrismaService {
       ORDER BY
           month;
     `;
-
-    console.log(query);
 
     try {
       return await this.$queryRaw(Prisma.raw(query));
