@@ -42,6 +42,9 @@ describe('StocksPricesRepository', () => {
       expect(repository.stockPrice.findMany).toHaveBeenCalledTimes(1);
       expect(repository.stockPrice.findMany).toHaveBeenCalledWith({
         where: {},
+        orderBy: {
+          timestamp: 'asc',
+        }
       });
 
       expect(result).toEqual(stocksPricesStub());
@@ -68,6 +71,9 @@ describe('StocksPricesRepository', () => {
         where: {
           company: query.company,
         },
+        orderBy: {
+          timestamp: 'asc',
+        }
       });
 
       expect(result).toEqual(stubs);
@@ -102,6 +108,9 @@ describe('StocksPricesRepository', () => {
             lt: endDate,
           },
         },
+        orderBy: {
+          timestamp: 'asc',
+        }
       });
 
       expect(result).toEqual(stubs);
