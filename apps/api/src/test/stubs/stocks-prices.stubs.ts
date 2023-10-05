@@ -25,4 +25,11 @@ export const stocksPricesStub = (): StockPrice[] => [
     lowestPriceOfTheDay: 166.1605,
     timestamp: 1641186000000n,
   },
+  {
+    id: 4,
+    company: 'GOOGLE',
+    highestPriceOfTheDay: 150.05,
+    lowestPriceOfTheDay: 144.55,
+    timestamp: 1672376400000n,
+  }
 ];
