@@ -12,7 +12,6 @@ export class StocksPricesController {
     return this.stocksPricesService.findStocksPricesGroupedByMonthAndAvgPrice(queryStocksDto);
   }
 
-
   @Get('best-gain-of-the-year')
   bestGainOfTheYear(@Query() bestGainQuery: BestGainQueryDto) {
     return this.stocksPricesService.bestGainOfTheYear(bestGainQuery);
