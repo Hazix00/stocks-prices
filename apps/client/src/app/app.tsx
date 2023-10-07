@@ -1,12 +1,15 @@
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
-
-import NxWelcome from './nx-welcome';
+import StocksPricesChartComponent from '../features/components/stocks-prices-chart.component';
 
 export function App() {
   return (
     <div>
-      <NxWelcome title="client" />
+      <header>
+        <h1 style={{ textAlign: 'center' }}>Evolution du prix des actions Amazon et Google sur 2022</h1>
+      </header>
+      <section>
+        <StocksPricesChartComponent/>
+      </section>
     </div>
   );
 }
