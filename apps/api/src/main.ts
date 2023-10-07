@@ -9,7 +9,7 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app/app.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
   const globalPrefix = 'api';
   app.setGlobalPrefix(globalPrefix);
   app.useGlobalPipes(
@@ -17,6 +17,15 @@ async function bootstrap() {
       transform: true,
       whitelist: true,
       forbidNonWhitelisted: true,
+    })
+  );
+  //add morgan middleware
+  const morgan = await import('morgan');
+  app.use(
+    morgan.default('dev', {
+      stream: {
+        write: (message) => Logger.debug(message.replace('\n', '')),
+      },
     })
   );
   const port = process.env.PORT || 3000;
