@@ -16,4 +16,9 @@ export class StocksService {
     const params = { company, year };
     return http.get<StocksPricesPerMonthDto[]>('', { params });
   }
+
+  async getBestGain(company: string, year: number) {
+    const params = { company, year };
+    return http.get<BestGain>('/best-gain-of-the-year', { params });
+  }
 }

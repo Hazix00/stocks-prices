@@ -83,7 +83,7 @@ const StocksPricesChartComponent: React.FC = () => {
     },
     scales: {
       y: {
-        min: 0,
+        min: 60,
         max: 200,
         ticks: {
           stepSize: 20,
@@ -96,7 +96,7 @@ const StocksPricesChartComponent: React.FC = () => {
 
   return (
     <div>
-      <Line data={chartData} options={chartOptions} />
+      <Line data={chartData} options={chartOptions} updateMode={'resize'} height={'95vh'} />
     </div>
   );
 };
